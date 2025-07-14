@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='form.css')}}">
+    <title>Credit Score Predictor</title>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 id="title" class="text-center">Credit Score Prediction Form</h1>
+            <p id="description" class="description text-center">
+                Enter the customer information below to predict their credit score.
+            </p>
+        </header>
+        <form id="survey-form" action="/predict" method="post">
+            <div class="form-group">
+                <label id="age-label" for="Age">Age</label>
+                <input
+                    type="number"
+                    name="Age"
+                    id="Age"
+                    class="form-control"
+                    placeholder="Enter Age"
+                    required
+                    value="{{ inputs['Age'] if inputs and 'Age' in inputs else '' }}"
+                    min= 25 and max=80
+                />
+            </div>
+            <div class="form-group">
+                <label id="annual_income-label" for="Annual_Income">Annual Income</label>
+                <input
+                    type="text"
+                    name="Annual_Income"
+                    id="Annual_Income"
+                    class="form-control"
+                    placeholder="Enter Annual Income"
+                    required
+                    value="{{ inputs['Annual_Income'] if inputs and 'Annual_Income' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Monthly_Inhand_Salary">Monthly Inhand Salary</label>
+                <input
+                    type="text"
+                    name="Monthly_Inhand_Salary"
+                    id="Monthly_Inhand_Salary"
+                    class="form-control"
+                    placeholder="Enter Monthly Inhand Salary"
+                    value="{{ inputs['Monthly_Inhand_Salary'] if inputs and 'Monthly_Inhand_Salary' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Num_Bank_Accounts">Number of Bank Accounts</label>
+                <input
+                    type="number"
+                    name="Num_Bank_Accounts"
+                    id="Num_Bank_Accounts"
+                    class="form-control"
+                    placeholder="Enter Number of Bank Accounts"
+                    required
+                    value="{{ inputs['Num_Bank_Accounts'] if inputs and 'Num_Bank_Accounts' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Num_Credit_Card">Number of Credit Cards</label>
+                <input
+                    type="number"
+                    name="Num_Credit_Card"
+                    id="Num_Credit_Card"
+                    class="form-control"
+                    placeholder="Enter Number of Credit Cards"
+                    required
+                    value="{{ inputs['Num_Credit_Card'] if inputs and 'Num_Credit_Card' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Interest_Rate">Interest Rate</label>
+                <input
+                    type="number"
+                    name="Interest_Rate"
+                    id="Interest_Rate"
+                    class="form-control"
+                    placeholder="Enter Interest Rate"
+                    required
+                    value="{{ inputs['Interest_Rate'] if inputs and 'Interest_Rate' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Num_of_Loan">Number of Loans</label>
+                <input
+                    type="number"
+                    name="Num_of_Loan"
+                    id="Num_of_Loan"
+                    class="form-control"
+                    placeholder="Enter Number of Loans"
+                    required
+                    value="{{ inputs['Num_of_Loan'] if inputs and 'Num_of_Loan' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Delay_from_due_date">Delay from Due Date</label>
+                <input
+                    type="number"
+                    name="Delay_from_due_date"
+                    id="Delay_from_due_date"
+                    class="form-control"
+                    placeholder="Enter Delay from Due Date"
+                    required
+                    value="{{ inputs['Delay_from_due_date'] if inputs and 'Delay_from_due_date' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Num_of_Delayed_Payment">Number of Delayed Payments</label>
+                <input
+                    type="number"
+                    name="Num_of_Delayed_Payment"
+                    id="Num_of_Delayed_Payment"
+                    class="form-control"
+                    placeholder="Enter Number of Delayed Payments"
+                    required
+                    value="{{ inputs['Num_of_Delayed_Payment'] if inputs and 'Num_of_Delayed_Payment' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Changed_Credit_Limit">Changed Credit Limit</label>
+                <input
+                    type="text"
+                    name="Changed_Credit_Limit"
+                    id="Changed_Credit_Limit"
+                    class="form-control"
+                    placeholder="Enter Changed Credit Limit"
+                    value="{{ inputs['Changed_Credit_Limit'] if inputs and 'Changed_Credit_Limit' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Num_Credit_Inquiries">Number of Credit Inquiries</label>
+                <input
+                    type="number"
+                    name="Num_Credit_Inquiries"
+                    id="Num_Credit_Inquiries"
+                    class="form-control"
+                    placeholder="Enter Number of Credit Inquiries"
+                    required
+                    value="{{ inputs['Num_Credit_Inquiries'] if inputs and 'Num_Credit_Inquiries' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Outstanding_Debt">Outstanding Debt</label>
+                <input
+                    type="text"
+                    name="Outstanding_Debt"
+                    id="Outstanding_Debt"
+                    class="form-control"
+                    placeholder="Enter Outstanding Debt"
+                    required
+                    value="{{ inputs['Outstanding_Debt'] if inputs and 'Outstanding_Debt' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Credit_Utilization_Ratio">Credit Utilization Ratio</label>
+                <input
+                    type="text"
+                    name="Credit_Utilization_Ratio"
+                    id="Credit_Utilization_Ratio"
+                    class="form-control"
+                    placeholder="Enter Credit Utilization Ratio"
+                    required
+                    value="{{ inputs['Credit_Utilization_Ratio'] if inputs and 'Credit_Utilization_Ratio' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Total_EMI_per_month">Total EMI per month</label>
+                <input
+                    type="text"
+                    name="Total_EMI_per_month"
+                    id="Total_EMI_per_month"
+                    class="form-control"
+                    placeholder="Enter Total EMI per month"
+                    required
+                    value="{{ inputs['Total_EMI_per_month'] if inputs and 'Total_EMI_per_month' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Amount_invested_monthly">Amount Invested Monthly</label>
+                <input
+                    type="text"
+                    name="Amount_invested_monthly"
+                    id="Amount_invested_monthly"
+                    class="form-control"
+                    placeholder="Enter Amount Invested Monthly"
+                    value="{{ inputs['Amount_invested_monthly'] if inputs and 'Amount_invested_monthly' in inputs else '' }}"
+                />
+            </div>
+            <div class="form-group">
+                <label for="Monthly_Balance">Monthly Balance</label>
+                <input
+                    type="text"
+                    name="Monthly_Balance"
+                    id="Monthly_Balance"
+                    class="form-control"
+                    placeholder="Enter Monthly Balance"
+                    required
+                    value="{{ inputs['Monthly_Balance'] if inputs and 'Monthly_Balance' in inputs else '' }}"
+                />
+            </div>
+
+            <div class="form-group">
+                <p>Payment of Minimum Amount</p>
+                <label>
+                    <input type="radio" name="Payment_of_Min_Amount" value="Yes"
+                           {% if inputs and 'Payment_of_Min_Amount' in inputs and inputs['Payment_of_Min_Amount'] == 'Yes' %}checked{% endif %}>  Yes
+                </label>
+                <label>
+                    <input type="radio" name="Payment_of_Min_Amount" value="No"
+                           {% if inputs and 'Payment_of_Min_Amount' in inputs and inputs['Payment_of_Min_Amount'] == 'No' %}checked{% endif %}>  No
+                </label>
+                <label>
+                    <input type="radio" name="Payment_of_Min_Amount" value="NM"
+                           {% if inputs and 'Payment_of_Min_Amount' in inputs and inputs['Payment_of_Min_Amount'] == 'NM' %}checked{% endif %}>  NM
+                </label>
+            </div>
+
+            <div class="form-group">
+                <p>Payment Behaviour <span class="clue">(Check all that apply)</span></p>
+                {% set payment_behaviors = [
+                    'High_spent_Small_value_payments',
+                    'Low_spent_Small_value_payments',
+                    'High_spent_Medium_value_payments',
+                    'Low_spent_Medium_value_payments',
+                    'High_spent_Large_value_payments',
+                    'Low_spent_Large_value_payments'
+                ] %}
+                {% for behavior in payment_behaviors %}
+                    <label>
+                        <input type="checkbox" name="Payment_Behaviour" value="{{ behavior }}"
+                               {% if inputs and 'Payment_Behaviour' in inputs and behavior in inputs['Payment_Behaviour'] %}checked{% endif %}> {{ behavior.replace('_', ' ') }}
+                    </label><br>
+                {% endfor %}
+            </div>
+            {% if prediction %}
+            <div class="form-group">
+                <h3>Predicted Credit Score: {{ prediction }}</h3>
+            </div>
+        {% endif %}
+            <input type="hidden" name="Month" value="1"> <input type="hidden" name="type_of_loan" value="Personal"> <input type="hidden" name="Credit_History_Age" value="12 Months"> <div class="form-group">
+                <button type="submit" id="submit" class="submit-button">
+                    Predict Credit Score
+                </button>
+            </div>
+            
+        </form>
+
+        
+    </div>
+</body>
+</html>
